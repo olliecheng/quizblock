@@ -1,9 +1,13 @@
 # quizblock
 
-As the name implies: a simple quiz block format to help create interactive quizzes in your Obsidian notes. quizblock is intentionally lightweight and adds one Markdown processor and one command.
+As the name implies: a simple quiz block format to help create interactive quizzes in your Obsidian notes. quizblock is intentionally lightweight and adds just two things:
+- A `quiz` fenced code block to specify the details of each multiple-choice quiz
+- A "Reset quiz block attempts in note" command (see Command Palette, <kbd>⌘ + P</kbd> or <kbd>ctrl + P</kbd>)
 
-The format is simple, powerful, and built with LLMs in mind. See [SKILLS.md] to understand how quizblock can integrate with your LLM of choice.
+The widget is minimal but interactive. The format is simple, powerful, and built to be easily written by humans and/or LLMs. See [SKILLS.md] to understand how quizblock can integrate with your LLM of choice.
 
+## Install
+Install [BRAT using its Quick Guide](https://tfthacker.com/brat-quick-guide), and add the quizblock plugin link: `https://github.com/olliecheng/quizblock`. Enable the plugin from Community Plugins.
 
 ## How to use
 Here is a quiz block. You get interactivity, hidden explanations, and question order shuffling included for free:
@@ -21,12 +25,10 @@ This answer is correct because:
 ```
 </pre>
 
-You can preview this block in Live Preview or Reading mode. You can answer this block interactively in Live Preview mode. Your selected options persist in the Markdown.
+You can preview this block in Live Preview or Reading mode. You can answer this block interactively in Live Preview mode. Your selected options persist in the text Markdown.
 
-![Screenshot of the quiz](assets/image.png)
+<img src="assets/image.png" width="600" />
 
-## Install
-Install [BRAT using its Quick Guide](https://tfthacker.com/brat-quick-guide), and add the quizblock plugin link: `https://github.com/olliecheng/quizblock`. Enable the plugin from Community Plugins.
 
 ## Format
 The simple anatomy of a quiz block is:
@@ -82,4 +84,4 @@ I think that MCQs are quite a good way to test and learn content.
 
 Obsidian provides an extensible text platform and already provides integration with your notes (i.e. via Tasks). Therefore - what if plaintext was your canvas for MCQ questions, with a renderer in Obsidian? You can generate questions using whatever you want: the web interface of ChatGPT, Claude, Gemini, or your agentic tool of choice.
 
-Plus, this way you can share your questions with your friends!
+Plus, this way you can share your questions with your friends! All they need is the source .md file and the quizblock plugin installed. Note that if you have attempted the quiz, your progress is saved in the file: you should first run the "Reset quiz block attempts in note" command to clear your progress.

@@ -1,9 +1,9 @@
 {
-	"id": "obsidiquiz",
-	"name": "ObsidiQuiz",
+	"id": "quizblock",
+	"name": "quizblock",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Render interactive multiple-choice quiz blocks inside your notes.",
-	"author": "Ollie Cheng",
+	"author": "Oliver Cheng",
 	"isDesktopOnly": false
 }

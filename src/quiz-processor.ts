@@ -194,6 +194,44 @@ function attachClickHandlers(
     });
 }
 
+export function resetQuizBlocksInNote(app: App): void {
+    const view = app.workspace.getActiveViewOfType(MarkdownView);
+    if (!view || view.getMode() === "preview") return;
+
+    const editor = view.editor;
+    const lineCount = editor.lineCount();
+    let inQuizBlock = false;
+    const changes: { line: number; text: string }[] = [];
+
+    for (let i = 0; i < lineCount; i++) {
+        const line = editor.getLine(i);
+        if (!inQuizBlock && /^```quiz\s*$/.test(line)) {
+            inQuizBlock = true;
+            continue;
+        }
+        if (inQuizBlock && /^```\s*$/.test(line)) {
+            inQuizBlock = false;
+            continue;
+        }
+        if (inQuizBlock) {
+            let newLine = line;
+            if (line.startsWith("[w] ")) newLine = "[ ] " + line.slice(4);
+            else if (line.startsWith("[r] ")) newLine = "[c] " + line.slice(4);
+            if (newLine !== line) changes.push({ line: i, text: newLine });
+        }
+    }
+
+    if (changes.length === 0) return;
+
+    editor.transaction({
+        changes: changes.map(({ line, text }) => ({
+            from: { line, ch: 0 },
+            to: { line, ch: editor.getLine(line).length },
+            text,
+        })),
+    });
+}
+
 export function registerQuizProcessor(plugin: Plugin): void {
     plugin.registerMarkdownCodeBlockProcessor("quiz", async (source, el, ctx) => {
         const sec = ctx.getSectionInfo(el);
