@@ -4,7 +4,7 @@ As the name implies: a simple quiz block format to help create interactive quizz
 - A `quiz` fenced code block to specify the details of each multiple-choice quiz
 - A "Reset quiz block attempts in note" command (see Command Palette, <kbd>⌘ + P</kbd> or <kbd>ctrl + P</kbd>)
 
-The widget is minimal but interactive. The format is simple, powerful, and built to be easily written by humans and/or LLMs. See [SKILLS.md] to understand how quizblock can integrate with your LLM of choice.
+The widget is minimal but interactive. The format is simple, powerful, and built to be easily written by humans and/or LLMs. See [SKILL.md](./SKILL.md) to understand how quizblock can integrate with your LLM of choice.
 
 ## Install
 Install [BRAT using its Quick Guide](https://tfthacker.com/brat-quick-guide), and add the quizblock plugin link: `https://github.com/olliecheng/quizblock`. Enable the plugin from Community Plugins.
