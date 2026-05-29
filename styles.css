@@ -60,6 +60,19 @@
     color: #007255;
 }
 
+.theme-dark .quiz-option--wrong {
+    background-color: #3a1208 !important;
+    border-color: #d95030;
+    color: #f08878;
+}
+
+.theme-dark .quiz-option--right,
+.theme-dark .quiz-option--revealed {
+    background-color: #0a2a1a !important;
+    border-color: #1a9966;
+    color: #5ecda0;
+}
+
 .quiz-details {
     display: none;
     margin-top: -8px;
