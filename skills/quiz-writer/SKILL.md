@@ -1,3 +1,8 @@
+---
+name: quiz-writer
+description: Use this skill whenever the user wants to write quiz questions or multiple-choice questions. Triggers include "multiple-choice", "quiz", "MCQ", or requests to create a test or challenge. Do NOT use when not explicitly asked to generate questions.
+---
+
 # Writing quiz questions for quizblock
 
 This file tells you how to write quiz blocks that the Obsidian plugin can render. The files must be in Markdown format.

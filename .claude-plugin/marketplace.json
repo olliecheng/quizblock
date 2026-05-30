@@ -1,0 +1,22 @@
+{
+    "name": "quizblock-llm-skills",
+    "owner": {
+        "name": "Oliver Cheng",
+        "email": "cheng.o@wehi.edu.au"
+    },
+    "metadata": {
+        "description": "quizblock LLM skills",
+        "version": "1.0.0"
+    },
+    "plugins": [
+        {
+            "name": "quizblock",
+            "description": "Skill to write quiz questions and answers",
+            "source": "./",
+            "strict": false,
+            "skills": [
+                "./skills/quiz-writer"
+            ]
+        }
+    ]
+}
