@@ -45,6 +45,14 @@ function parseQuiz(source: string): ParsedQuiz {
         }
     }
 
+    const seen = new Set<string>();
+    const uniqueOptions = options.filter(o => {
+        const key = o.text.trim().toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
+
     let qStart = 0;
     while (qStart < questionLines.length && questionLines[qStart]?.trim() === "") qStart++;
     let qEnd = questionLines.length - 1;
@@ -59,7 +67,7 @@ function parseQuiz(source: string): ParsedQuiz {
     while (end >= start && afterLines[end]?.trim() === "") end--;
     const details = start <= end ? afterLines.slice(start, end + 1).join("\n") : undefined;
 
-    return { question, options, details };
+    return { question, options: uniqueOptions, details };
 }
 
 function nextState(current: OptionState): OptionState {
