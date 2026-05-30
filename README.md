@@ -29,6 +29,15 @@ You can preview this block in Live Preview or Reading mode. You can answer this 
 
 <img src="assets/image.png" width="600" />
 
+## Using with an LLM
+Download the skill from [skills/quiz-writer.skill](https://raw.githubusercontent.com/olliecheng/quizblock/refs/heads/main/skills/quiz-writer.skill) and import it into your desktop chat of choice.
+
+For use with a coding agent, if you are using my *Humphrey* knowledge base, you can add both as plugins to a codebase:
+```
+/plugin marketplace add olliecheng/humphrey
+/plugin install humphrey@humphrey-llm-skills
+/plugin install quizblock@humphrey-llm-skills
+```
 
 ## Format
 The simple anatomy of a quiz block is:
