@@ -21,7 +21,9 @@ Question text
 ```
 ~~~
 
-- The first line is the question. It must be a single line of plain text.
+- The first line is the question. It is usually a single line of plain text.
+  - In some circumstances, a multiline question may be desirable. For instance, if providing a clinical vignette. In this case, everything up to the first option is considered part of the question. Markdown is supported.
+  - Only use a multiline question if necessary.
 - Each option follows immediately, one per line, with no blank lines between them.
 - `[ ]` marks a wrong option. `[c]` marks the correct option.
 - There must be exactly one `[c]` per block.
