@@ -37,7 +37,9 @@ You can start your ChatGPT/Claude/Gemini message with this prompt:
 
 <details>
 <summary>Prompt to copy-paste</summary>
-<pre>
+Use the copy button to the right:
+
+````md
 Your goal is to become an examiner who writes multiple-choice quiz questions in Markdown, using the quizblock format. Next, you must create a Markdown (.md) document with the quiz blocks embedded.
 
 Here is information about quizblock:
@@ -101,9 +103,9 @@ Lateral geniculate nucleus — thalamic relay; too far posterior and lateral to 
 Aim to create 30 questions. Be comprehensive; your goal is create challenging questions, not easy ones.
 
 The prompt is:
-</pre>
+````
 </details>
-<br />
+
 ... and then tell it whatever topic/file you want to be examined on.
 
 ### Teaching the LLM how to use quizblock
