@@ -96,6 +96,45 @@ Right optic radiation — a more posterior structure in the temporal/parietal lo
 Optic chiasm (correct) — compression of crossing nasal fibres → bitemporal hemianopia.
 Lateral geniculate nucleus — thalamic relay; too far posterior and lateral to be compressed by a pituitary mass.
 ```
+Key considerations
+* You can often put in two answers that are both technically correct, but one is more correct than the other. In this case, you should mark the more correct answer as `[c]` and the less correct answer as `[ ]`. The details section can be used to explain why the correct answer is better than the other technically correct answer.
+* Your questions should challenge the user to apply their knowledge, not just recall facts. Avoid questions that can be answered by rote memorization; instead, ask questions that require reasoning, analysis, or synthesis of information. 
+  * "Trick questions" are allowed, even encouraged. Perhaps the first half of the answer is correct but there is a key caveat which makes the answer incorrect. Do not shy away from challenging the user!
+* It is CRITICAL that you write your correct answer in the same style as your incorrect answers. If your correct answer is much longer, more technical, or more detailed than the incorrect options, the user will be able to guess the correct answer without understanding the material. This is a common mistake when writing quiz questions, and it must be avoided. Furthermore, do not use lists, semicolons, or detailed grammatical constructs in the correct answer if you are not using them in the incorrect options. The correct answer should be indistinguishable from the incorrect options in terms of style and formatting; the only difference should be the content.
+Here is an example of a poorly written question that violates these principles:
+```quiz
+What is the distinction between "homeostatic" and "hedonic" appetite control?
+[ ] Homeostatic appetite is conscious; hedonic appetite is subconscious
+[r] Homeostatic appetite responds to metabolic needs (leptin, incretins); hedonic appetite is driven by sensory cues and emotional triggers independent of energy needs
+^^^^^^^^^^^^^^^^^
+TOO LONG!!! This answer is obviously correct because it has too much detail.
+[ ] Homeostatic appetite increases food intake; hedonic appetite decreases it
+[ ] Hedonic appetite only occurs in obese individuals
+```
+An improved version:
+```quiz
+What is the distinction between "homeostatic" and "hedonic" appetite control?
+[ ] Homeostatic appetite is conscious; hedonic appetite is subconscious
+[r] Hedonic appetite is driven by sensory cues and emotional triggers, independent of energy needs
+[ ] Homeostatic appetite increases food intake; hedonic appetite decreases it
+[ ] Hedonic appetite only occurs in obese individuals
+```
+Another poor question:
+```quiz
+The SELECT trial (semaglutide 2.4 mg weekly) demonstrated which cardiovascular benefit in patients with obesity but WITHOUT diabetes?
+[ ] Reduced progression to type 2 diabetes
+[ ] Improved glycaemic control in pre-diabetic patients
+[r] Reduced incidence of death from CV causes, non-fatal MI, or non-fatal stroke in patients with pre-existing CVD
+[ ] Reduced rate of heart failure hospitalisation only
+```
+A much better way to write that question would be:
+```quiz
+The SELECT trial (semaglutide 2.4 mg weekly) demonstrated which cardiovascular benefit in patients with obesity but WITHOUT diabetes?
+[ ] Reduced progression to type 2 diabetes
+[ ] Improved glycaemic control in pre-diabetic patients
+[r] Reduced incidence of death from CV causes
+[ ] Reduced rate of heart failure hospitalisation only
+```
 </skill_info>
 
 
