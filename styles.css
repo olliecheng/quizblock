@@ -7,8 +7,15 @@
 }
 
 .quiz-question {
-    font-weight: 600;
     margin-bottom: 10px;
+}
+
+.quiz-question--single {
+    font-weight: 600;
+}
+
+.quiz-question p {
+    margin: 0;
 }
 
 .quiz-options {

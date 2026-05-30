@@ -24,8 +24,9 @@ const OPTION_RE = /^\[([ crw])\] (.*)$/;
 
 function parseQuiz(source: string): ParsedQuiz {
     const lines = source.split("\n");
-    let question = "";
+    const questionLines: string[] = [];
     const options: QuizOption[] = [];
+    let firstOptionFound = false;
 
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
@@ -33,15 +34,22 @@ function parseQuiz(source: string): ParsedQuiz {
 
         const match = OPTION_RE.exec(line);
         if (match) {
+            firstOptionFound = true;
             options.push({
                 state: match[1] as OptionState,
                 text: match[2] ?? "",
                 lineIndex: i,
             });
-        } else if (!question && line.trim() !== "") {
-            question = line.trim();
+        } else if (!firstOptionFound) {
+            questionLines.push(line);
         }
     }
+
+    let qStart = 0;
+    while (qStart < questionLines.length && questionLines[qStart]?.trim() === "") qStart++;
+    let qEnd = questionLines.length - 1;
+    while (qEnd >= qStart && questionLines[qEnd]?.trim() === "") qEnd--;
+    const question = qStart <= qEnd ? questionLines.slice(qStart, qEnd + 1).join("\n") : "";
 
     const lastOptionIndex = options.length > 0 ? Math.max(...options.map(o => o.lineIndex)) : -1;
     const afterLines = lines.slice(lastOptionIndex + 1);
@@ -108,7 +116,8 @@ function renderQuiz(el: HTMLElement, quiz: ParsedQuiz, isInteractive: boolean): 
         cls: isInteractive ? "quiz-block" : "quiz-block quiz-block--readonly",
     });
 
-    block.createDiv({ cls: "quiz-question", text: quiz.question });
+    const isSingleLine = !quiz.question.includes("\n");
+    block.createDiv({ cls: isSingleLine ? "quiz-question quiz-question--single" : "quiz-question" });
 
     const hasWrongSelection = quiz.options.some((o) => o.state === "w");
     const isAnswered = quiz.options.some((o) => o.state === "w" || o.state === "r");
@@ -237,6 +246,11 @@ export function registerQuizProcessor(plugin: Plugin): void {
         const sec = ctx.getSectionInfo(el);
         const quiz = parseQuiz(source);
         renderQuiz(el, quiz, sec !== null);
+
+        const questionEl = el.querySelector<HTMLElement>(".quiz-question");
+        if (questionEl) {
+            await MarkdownRenderer.render(plugin.app, quiz.question, questionEl, ctx.sourcePath, plugin);
+        }
 
         if (quiz.details !== undefined) {
             const detailsEl = el.querySelector<HTMLElement>(".quiz-details");

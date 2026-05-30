@@ -2,12 +2,14 @@
 
 As the name implies: a simple quiz block format to help create interactive quizzes in your Obsidian notes. quizblock is intentionally lightweight and adds just two things:
 - A `quiz` fenced code block to specify the details of each multiple-choice quiz
-- A "Reset quiz block attempts in note" command (see Command Palette, <kbd>⌘ + P</kbd> or <kbd>ctrl + P</kbd>)
+- A "Reset quiz block attempts in note" command (in the Command Palette, <kbd>⌘ + P</kbd> or <kbd>ctrl + P</kbd>)
 
-The widget is minimal but interactive. The format is simple, powerful, and built to be easily written by humans and/or LLMs. See [SKILL.md](./SKILL.md) to understand how quizblock can integrate with your LLM of choice.
+The widget is minimal but interactive. The format is simple, powerful, and built to be easily written by humans and/or LLMs. See [Using with an LLM](#using-with-an-llm) to understand how quizblock can integrate with your LLM of choice.
 
 ## Install
-Install [BRAT using its Quick Guide](https://tfthacker.com/brat-quick-guide), and add the quizblock plugin link: `https://github.com/olliecheng/quizblock`. Enable the plugin from Community Plugins.
+quizblock is available from the [Obsidian plugin catalogue!](https://community.obsidian.md/plugins/quizblock) Install it from Settings → Community Plugins → Browse.
+
+Alternatively: install [BRAT using its Quick Guide](https://tfthacker.com/brat-quick-guide), and add the quizblock plugin link: `https://github.com/olliecheng/quizblock`. Enable the plugin from Community Plugins.
 
 ## How to use
 Here is a quiz block. You get interactivity, hidden explanations, and question order shuffling included for free:
@@ -30,14 +32,11 @@ You can preview this block in Live Preview or Reading mode. You can answer this 
 <img src="assets/image.png" width="600" />
 
 ## Using with an LLM
-Download the skill from [skills/quiz-writer.skill](https://raw.githubusercontent.com/olliecheng/quizblock/refs/heads/main/skills/quiz-writer.skill) and import it into your desktop chat of choice.
+Download the skill from [skills/quiz-writer.skill](https://raw.githubusercontent.com/olliecheng/quizblock/refs/heads/main/skills/quiz-writer.skill) and import it into your desktop chat of choice, or [view it on GitHub](https://github.com/olliecheng/quizblock/blob/main/skills/quiz-writer/SKILL.md) and copy-paste it into your chatbot.
 
-For use with a coding agent, if you are using my *Humphrey* knowledge base, you can add both as plugins to a codebase:
-```
-/plugin marketplace add olliecheng/humphrey
-/plugin install humphrey@humphrey-llm-skills
-/plugin install quizblock@humphrey-llm-skills
-```
+You might like to create a separate Project which explains how to generate questions. I have also anecdotally had success instructing the agent "not to use any front-end design tool and to produce output only in Markdown format."
+
+LLMs are bad at randomness and often their selected correct answer is located in the same location. To fix this, each question automatically has a deterministic but random shuffle order (seeded with the question stem).
 
 ## Format
 The simple anatomy of a quiz block is:
